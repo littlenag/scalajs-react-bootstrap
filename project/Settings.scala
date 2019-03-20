@@ -66,27 +66,20 @@ object Settings {
 
   /** Declare global dependency versions here to avoid mismatches in multi part dependencies */
   object versions {
-    val scalaDom = "0.9.6"
+    val scalaDom           = "0.9.6"
     val scalajsReactFacade = "1.4.1"
     val scalajsReactBridge = "0.7.0"
-    val scalaCSS = "0.5.5"
-    val bootstrapFacade = "2.3.5"
-    val scalaCheck      = "1.14.0"
-    val scalaTest       = "3.0.5"
+    val scalaCheck         = "1.14.0"
+    val scalaTest          = "3.0.5"
   }
 
   val dependencies = Def.setting(Seq(
-    "com.github.japgolly.scalajs-react" %%% "core"                      % versions.scalajsReactFacade, // withSources (),
+    "com.github.japgolly.scalajs-react" %%% "core"                      % versions.scalajsReactFacade,
     "com.github.japgolly.scalajs-react" %%% "extra"                     % versions.scalajsReactFacade,
+
     "com.payalabs"                      %%% "scalajs-react-bridge"      % versions.scalajsReactBridge,
 
-    "com.github.japgolly.scalacss"      %%% "core"                      % versions.scalaCSS,
-    "com.github.japgolly.scalacss"      %%% "ext-react"                 % versions.scalaCSS,
-
     "org.scala-js"                      %%% "scalajs-dom"               % versions.scalaDom,
-
-    // Facades of other JavaScript libraries
-    "com.github.karasiq"                %%% "scalajs-bootstrap-v4"      % versions.bootstrapFacade,
 
     "org.scalacheck"                    %%% "scalacheck"                % versions.scalaCheck % Test,
     "org.scalatest"                     %%% "scalatest"                 % versions.scalaTest  % Test
