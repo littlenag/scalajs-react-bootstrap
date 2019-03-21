@@ -7,12 +7,6 @@ import sbt._
  * You normally don't have to touch the actual build definition after this.
  */
 object Settings {
-  /** The name of your application */
-  val name = "scalajs-react-bootstrap"
-
-  /** The version of your application */
-  val version = "0.0.1-SNAPSHOT"
-
   /** Options for the scala compiler */
   val scalacOptions = Seq(
     // format: off
