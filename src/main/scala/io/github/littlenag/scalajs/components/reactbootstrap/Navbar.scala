@@ -1,6 +1,7 @@
 package io.github.littlenag.scalajs.components.reactbootstrap
 
 import com.payalabs.scalajs.react.bridge.WithProps
+import japgolly.scalajs.react.vdom.VdomElement
 import org.scalajs.dom.html.Element
 
 import scala.scalajs.js
@@ -17,8 +18,8 @@ object Navbar extends ReactBootstrapComponent {
             sticky : js.UndefOr[String] = js.undefined,
             expand : js.UndefOr[String | Boolean] = js.undefined,
             expanded : js.UndefOr[Boolean] = js.undefined,
-            onSelect: js.UndefOr[js.Function0[Unit]] = js.undefined,
-            onToggle: js.UndefOr[js.Function0[Unit]] = js.undefined): WithProps = auto
+            onSelect: js.UndefOr[() => Unit] = js.undefined,
+            onToggle: js.UndefOr[() => Unit] = js.undefined): WithProps = auto
 }
 
 @js.native
@@ -30,7 +31,7 @@ private object NavbarObj extends js.Object {
 }
 
 object NavbarBrand extends ReactBootstrapComponent {
-  def apply(as: js.UndefOr[Element] = js.undefined,
+  def apply(as: js.UndefOr[VdomElement] = js.undefined,
             href: js.UndefOr[String] = js.undefined,
             bsPrefix: js.UndefOr[String] = js.undefined): WithProps = auto
 }
@@ -39,7 +40,7 @@ object NavbarBrand extends ReactBootstrapComponent {
 object NavbarToggle extends ReactBootstrapComponent {
   override protected lazy val componentName: String = "Navbar.Toggle"
   override protected lazy val componentValue: js.Any = NavbarObj.Toggle
-  def apply(as: js.UndefOr[Element] = js.undefined,
+  def apply(as: js.UndefOr[VdomElement] = js.undefined,
             label: js.UndefOr[String] = js.undefined,
             bsPrefix: js.UndefOr[String] = js.undefined): WithProps = auto
 }
