@@ -3,7 +3,7 @@ enablePlugins(ScalaJSPlugin, ScalafmtPlugin, GhpagesPlugin, MicrositesPlugin, Tu
 scalaVersion := "2.12.8"
 organization := "io.github.littlenag"
 name         := "scalajs-react-bootstrap"
-version      := "0.0.1-SNAPSHOT"
+version      := "0.0.2-SNAPSHOT"
 
 git.remoteRepo := "git@github.com:littlenag/scalajs-react-bootstrap.git"
 
