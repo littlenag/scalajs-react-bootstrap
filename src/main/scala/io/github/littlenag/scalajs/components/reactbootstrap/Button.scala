@@ -20,7 +20,7 @@ object Button extends ReactBootstrapComponent {
             size: js.UndefOr[String] = js.undefined,
             `type`: js.UndefOr[String] = js.undefined,
             variant: js.UndefOr[String] = js.undefined,
-            onClick: js.UndefOr[Callback] = js.undefined,
+            onClick: js.UndefOr[() => Callback] = js.undefined,
             bsPrefix: js.UndefOr[String] = js.undefined): WithProps = auto
 }
 
@@ -29,7 +29,7 @@ object Button extends ReactBootstrapComponent {
   */
 object ToggleButtonGroup extends ReactBootstrapComponent {
   def apply(name: js.UndefOr[String] = js.undefined,
-            onChange: js.UndefOr[Callback] = js.undefined,
+            onChange: js.UndefOr[() => Callback] = js.undefined,
             `type`: js.UndefOr[String] = js.undefined,
             value: js.UndefOr[js.Any] = js.undefined): WithProps = auto
 }
@@ -42,7 +42,7 @@ object ToggleButton extends ReactBootstrapComponent {
             disabled: js.UndefOr[Boolean] = js.undefined,
             inputRef: js.UndefOr[Ref] = js.undefined,
             name: js.UndefOr[String] = js.undefined,
-            onChange: js.UndefOr[Callback] = js.undefined,
+            onChange: js.UndefOr[() => Callback] = js.undefined,
             `type`: js.UndefOr[String] = js.undefined,
             value: js.UndefOr[js.Any] = js.undefined): WithProps = auto
 }
