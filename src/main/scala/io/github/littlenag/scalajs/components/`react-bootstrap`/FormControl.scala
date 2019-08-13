@@ -1,6 +1,6 @@
-package io.github.littlenag.scalajs.components.reactbootstrap
+package io.github.littlenag.scalajs.components.`react-bootstrap`
 
-import com.payalabs.scalajs.react.bridge.WithPropsNoChildren
+import com.payalabs.scalajs.react.bridge.{ReactBridgeComponent, WithPropsNoChildren}
 import japgolly.scalajs.react._
 import japgolly.scalajs.react.raw.SyntheticEvent
 import org.scalajs.dom.html
@@ -10,7 +10,8 @@ import scala.scalajs.js
 /**
   * Bridge to [ReactBootstrap](http://react-bootstrap.github.io/)'s FormControl component
   */
-object FormControl extends ReactBootstrapComponent {
+object FormControl extends ReactBridgeComponent {
+  override protected lazy val componentValue: js.Any = ReactBootstrapModule.FormControl
   def apply(`type`: js.UndefOr[String] = js.undefined,
             label: js.UndefOr[String] = js.undefined,
             help: js.UndefOr[String] = js.undefined,

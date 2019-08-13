@@ -1,15 +1,16 @@
-package io.github.littlenag.scalajs.components.reactbootstrap
+package io.github.littlenag.scalajs.components.`react-bootstrap`
 
-import com.payalabs.scalajs.react.bridge.WithProps
+import com.payalabs.scalajs.react.bridge.{ReactBridgeComponent, WithProps}
 import org.scalajs.dom.html.Element
 
 import scala.scalajs.js
-import scala.scalajs.js.annotation.JSImport
 
 /**
   * [Alerts Component](http://react-bootstrap.github.io/components/alerts/)
   */
-object Alert extends ReactBootstrapComponent {
+object Alert extends ReactBridgeComponent {
+  override lazy val componentValue: js.Any = ReactBootstrapModule.Alert
+
   def apply(closeLabel: js.UndefOr[String] = js.undefined,
             dismissible: js.UndefOr[Boolean] = js.undefined,
             onClose: js.UndefOr[js.Function0[Unit]] = js.undefined,
@@ -19,23 +20,14 @@ object Alert extends ReactBootstrapComponent {
             bsPrefix: js.UndefOr[String] = js.undefined): WithProps = auto
 }
 
-@js.native
-@JSImport("react-bootstrap/Alert", JSImport.Namespace)
-private object AlertObj extends js.Object {
-  def Heading: js.Any = js.native
-  def Link: js.Any = js.native
-}
-
-object AlertHeading extends ReactBootstrapComponent {
-  override protected lazy val componentName: String = "Alert.Heading"
-  override protected lazy val componentValue: js.Any = AlertObj.Heading
+object AlertHeading extends ReactBridgeComponent {
+  override protected lazy val componentValue: js.Any = ReactBootstrapModule.Alert.Heading
   def apply(as: js.UndefOr[Element] = js.undefined,
             bsPrefix: js.UndefOr[String] = js.undefined): WithProps = auto
 }
 
-object AlertLink extends ReactBootstrapComponent {
-  override protected lazy val componentName: String = "Alert.Link"
-  override protected lazy val componentValue: js.Any = AlertObj.Link
+object AlertLink extends ReactBridgeComponent {
+  override protected lazy val componentValue: js.Any = ReactBootstrapModule.Alert.Link
   def apply(as: js.UndefOr[Element] = js.undefined,
             bsPrefix: js.UndefOr[String] = js.undefined): WithProps = auto
 }

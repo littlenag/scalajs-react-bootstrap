@@ -1,15 +1,15 @@
-package io.github.littlenag.scalajs.components.reactbootstrap
+package io.github.littlenag.scalajs.components.`react-bootstrap`
 
-import com.payalabs.scalajs.react.bridge.WithProps
+import com.payalabs.scalajs.react.bridge.{ReactBridgeComponent, WithProps}
 import org.scalajs.dom.html.Element
 
 import scala.scalajs.js
-import scala.scalajs.js.annotation.JSImport
 
 /**
   * Bridge to [ReactBootstrap](http://react-bootstrap.github.io/)'s Modal components
   */
-object Modal extends ReactBootstrapComponent {
+object Modal extends ReactBridgeComponent {
+  override protected lazy val componentValue: js.Any = ReactBootstrapModule.Modal
   def apply(animation: js.UndefOr[Boolean] = true,
             keyboard: js.UndefOr[Boolean] = true,
             show: js.UndefOr[Boolean] = false,
@@ -23,43 +23,36 @@ object Modal extends ReactBootstrapComponent {
             onEntering: js.UndefOr[js.Function0[Unit]] = js.undefined): WithProps = auto
 }
 
-@js.native
-@JSImport("react-bootstrap/Modal", JSImport.Namespace)
-private object ModalObj extends js.Object {
-  def Body: js.Any = js.native
-  def Title: js.Any = js.native
-  def Header: js.Any = js.native
-  def Footer: js.Any = js.native
-  def Dialog: js.Any = js.native
-}
-
-object ModalDialog extends ReactBootstrapComponent {
+object ModalDialog extends ReactBridgeComponent {
+  override protected lazy val componentValue: js.Any = ReactBootstrapModule.Modal.Dialog
   def apply(centered: js.UndefOr[Boolean] = js.undefined,
             size: js.UndefOr[String] = js.undefined,
             bsPrefix: js.UndefOr[String] = js.undefined): WithProps = auto
 }
 
 // Special handling, since react-bootstrap doesn't see the need to actually export this one, gah!
-object ModalHeader extends ReactBootstrapComponent {
-  override protected lazy val componentName: String = "Modal.Header"
-  override protected lazy val componentValue: js.Any = ModalObj.Header
+object ModalHeader extends ReactBridgeComponent {
+  override protected lazy val componentValue: js.Any = ReactBootstrapModule.Modal.Header
   def apply(closeButton: js.UndefOr[Boolean] = false,
             closeLabel: js.UndefOr[String] = "Close",
             onHide: js.UndefOr[js.Function0[Unit]] = js.undefined,
             bsPrefix: js.UndefOr[String] = js.undefined): WithProps = auto
 }
 
-object ModalTitle extends ReactBootstrapComponent {
+object ModalTitle extends ReactBridgeComponent {
+  override protected lazy val componentValue: js.Any = ReactBootstrapModule.Modal.Title
   def apply(as: js.UndefOr[Element] = js.undefined,
             bsPrefix: js.UndefOr[String] = js.undefined): WithProps = auto
 }
 
-object ModalBody extends ReactBootstrapComponent {
+object ModalBody extends ReactBridgeComponent {
+  override protected lazy val componentValue: js.Any = ReactBootstrapModule.Modal.Body
   def apply(as: js.UndefOr[Element] = js.undefined,
             bsPrefix: js.UndefOr[String] = js.undefined): WithProps = auto
 }
 
-object ModalFooter extends ReactBootstrapComponent {
+object ModalFooter extends ReactBridgeComponent {
+  override protected lazy val componentValue: js.Any = ReactBootstrapModule.Modal.Footer
   def apply(as: js.UndefOr[Element] = js.undefined,
             bsPrefix: js.UndefOr[String] = js.undefined): WithProps = auto
 }
