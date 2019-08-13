@@ -3,7 +3,6 @@ enablePlugins(ScalaJSPlugin, ScalafmtPlugin)
 scalaVersion := "2.12.8"
 organization := "io.github.littlenag"
 name         := "scalajs-react-bootstrap"
-version      := "0.0.2-SNAPSHOT"
 
 scalacOptions ++= Settings.scalacOptions
 
