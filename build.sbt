@@ -20,9 +20,15 @@ scalaJSUseMainModuleInitializer in Test := false
 
 libraryDependencies ++= Settings.dependencies.value
 
-credentials += Credentials(Path.userHome / ".sbt" / "sonatype_credential")
+credentials += Credentials(Path.userHome / ".sbt" / "sonatype.credentials")
 
-releasePublishArtifactsAction := {PgpKeys.publishSigned.value}
+releasePublishArtifactsAction := PgpKeys.publishSigned.value
+
+PgpKeys.pgpPassphrase := Option(Credentials.toDirect(Credentials(Path.userHome / ".sbt" / "pgp.credentials")).passwd.toCharArray)
+
+useGpg in Global := true
+
+pgpSecretRing := pgpPublicRing.value
 
 // Custom release process
 releaseProcess := Seq[ReleaseStep](
