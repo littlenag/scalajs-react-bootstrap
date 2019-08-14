@@ -1,8 +1,8 @@
-//ThisBuild / organization := "io.github.littlenag"
+// https://www.scala-sbt.org/release/docs/Using-Sonatype.html
+
+ThisBuild / organization := "io.github.littlenag"
 ThisBuild / organizationName := "io.github.littlenag"
 ThisBuild / organizationHomepage := Some(url("http://littlenag.github.io/"))
-
-//mappings.in(Compile, packageBin) += baseDirectory.in(ThisBuild).value / "LICENSE" -> "LICENSE"
 
 ThisBuild / scmInfo := Some(
   ScmInfo(
@@ -39,3 +39,5 @@ ThisBuild / publishTo := {
     Some("releases" at nexus + "service/local/staging/deploy/maven2")
 }
 ThisBuild / publishMavenStyle := true
+
+ThisBuild / useGpg := true

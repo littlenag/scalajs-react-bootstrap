@@ -1,3 +1,5 @@
+import ReleaseTransformations._
+
 enablePlugins(ScalaJSPlugin, ScalafmtPlugin)
 
 scalaVersion := "2.12.8"
@@ -18,6 +20,24 @@ scalaJSUseMainModuleInitializer in Test := false
 
 libraryDependencies ++= Settings.dependencies.value
 
-//useGpg := true
-
 credentials += Credentials(Path.userHome / ".sbt" / "sonatype_credential")
+
+releasePublishArtifactsAction := {PgpKeys.publishSigned.value}
+
+// Custom release process
+releaseProcess := Seq[ReleaseStep](
+  checkSnapshotDependencies,              // : ReleaseStep
+  inquireVersions,                        // : ReleaseStep
+  runClean,                               // : ReleaseStep
+  runTest,                                // : ReleaseStep
+  setReleaseVersion,                      // : ReleaseStep
+  commitReleaseVersion,                   // : ReleaseStep, performs the initial git checks
+  tagRelease,                             // : ReleaseStep
+  //releaseStepCommand(s"sonatypeOpen \"io.github.littlenag\" \"iogithublittlenag-${System.currentTimeMillis()}\""),
+  //releaseStepCommand("publishSigned"),
+  //releaseStepCommand("sonatypeRelease"),
+  publishArtifacts,
+  setNextVersion,                         // : ReleaseStep
+  commitNextVersion,                      // : ReleaseStep
+  pushChanges,                            // : ReleaseStep, also checks that an upstream branch is properly configured,
+)
