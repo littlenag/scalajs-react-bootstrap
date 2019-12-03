@@ -26,6 +26,23 @@ object ReactBootstrapModule extends js.Object {
     def Link: js.Any = js.native
   }
 
+  trait FormComponent extends js.Object {
+    def Row: js.Any = js.native
+    def Group: js.Any = js.native
+    def Label: js.Any = js.native
+    def Control: js.Any = js.native
+    def Check: FormCheckComponent = js.native
+  }
+
+  trait FormControlComponent extends js.Object {
+    def Feedback: js.Any = js.native
+  }
+
+  trait FormCheckComponent extends js.Object {
+    def Input: js.Any = js.native
+    def Label: js.Any = js.native
+  }
+
   trait ModalComponent extends js.Object {
     def Body: js.Any = js.native
     def Title: js.Any = js.native
@@ -60,7 +77,9 @@ object ReactBootstrapModule extends js.Object {
   def ToggleButton: js.Any = js.native
   def ButtonToolbar: js.Any = js.native
   def Card: CardComponent = js.native
-  def FormControl: js.Any = js.native
+  def Form: FormComponent = js.native
+  def FormControl: FormControlComponent = js.native
+  def FormCheck: FormCheckComponent = js.native
   def Modal: ModalComponent = js.native
   def Nav: NavComponent = js.native
   def NavDropdown: NavDropdownComponent = js.native

@@ -11,6 +11,7 @@ import scala.scalajs.js.|
 object Table extends ReactBridgeComponent {
   override protected lazy val componentValue: js.Any = ReactBootstrapModule.Table
   def apply(bordered: js.UndefOr[Boolean] = js.undefined,
+            borderless: js.UndefOr[Boolean] = js.undefined,
             hover: js.UndefOr[Boolean] = js.undefined,
             responsive: js.UndefOr[Boolean | String] = js.undefined,
             size: js.UndefOr[String] = js.undefined,

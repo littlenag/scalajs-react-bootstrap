@@ -30,3 +30,8 @@ object FormControl extends ReactBridgeComponent {
             checked: js.UndefOr[Boolean] = js.undefined,
             disabled: js.UndefOr[Boolean] = js.undefined): WithPropsNoChildren = autoNoChildren
 }
+
+object FormControlFeedback extends ReactBridgeComponent {
+  override protected lazy val componentValue: js.Any = ReactBootstrapModule.FormControl.Feedback
+  def apply(`type`: js.UndefOr[String] = js.undefined): WithPropsNoChildren = autoNoChildren
+}
