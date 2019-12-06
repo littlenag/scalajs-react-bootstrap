@@ -1,6 +1,7 @@
 package io.github.littlenag.scalajs.components.`react-bootstrap`
 
 import com.payalabs.scalajs.react.bridge.{ReactBridgeComponent, WithProps}
+import japgolly.scalajs.react.Callback
 import org.scalajs.dom.html.Element
 
 import scala.scalajs.js
@@ -17,7 +18,7 @@ object Nav extends ReactBridgeComponent {
             navbar: js.UndefOr[Boolean] = js.undefined,
             role: js.UndefOr[String] = js.undefined,
             variant: js.UndefOr[String] = js.undefined,
-            onSelect: js.UndefOr[js.Function0[Unit]] = js.undefined,
+            onSelect: js.UndefOr[() => Callback] = js.undefined,
             bsPrefix: js.UndefOr[String] = js.undefined): WithProps = auto
 }
 
@@ -35,7 +36,7 @@ object NavLink extends ReactBridgeComponent {
             disabled: js.UndefOr[Boolean] = js.undefined,
             eventKey: js.UndefOr[js.Any] = js.undefined,
             href: js.UndefOr[String] = js.undefined,
-            onSelect: js.UndefOr[js.Function0[Unit]] = js.undefined,
+            onSelect: js.UndefOr[() => Callback] = js.undefined,
             role: js.UndefOr[String] = js.undefined,
             bsPrefix: js.UndefOr[String] = js.undefined): WithProps = auto
 }

@@ -1,6 +1,7 @@
 package io.github.littlenag.scalajs.components.`react-bootstrap`
 
 import com.payalabs.scalajs.react.bridge.{ReactBridgeComponent, WithProps}
+import japgolly.scalajs.react.Callback
 import org.scalajs.dom.html.Element
 
 import scala.scalajs.js
@@ -14,13 +15,13 @@ object Modal extends ReactBridgeComponent {
             keyboard: js.UndefOr[Boolean] = true,
             show: js.UndefOr[Boolean] = false,
             size : js.UndefOr[String] = js.undefined,
-            onHide: js.UndefOr[js.Function0[Unit]] = js.undefined,
-            onExit: js.UndefOr[js.Function0[Unit]] = js.undefined,
-            onExited: js.UndefOr[js.Function0[Unit]] = js.undefined,
-            onExiting: js.UndefOr[js.Function0[Unit]] = js.undefined,
-            onEnter: js.UndefOr[js.Function0[Unit]] = js.undefined,
-            onEntered: js.UndefOr[js.Function0[Unit]] = js.undefined,
-            onEntering: js.UndefOr[js.Function0[Unit]] = js.undefined): WithProps = auto
+            onHide: js.UndefOr[() => Callback] = js.undefined,
+            onExit: js.UndefOr[() => Callback] = js.undefined,
+            onExited: js.UndefOr[() => Callback] = js.undefined,
+            onExiting: js.UndefOr[() => Callback] = js.undefined,
+            onEnter: js.UndefOr[() => Callback] = js.undefined,
+            onEntered: js.UndefOr[() => Callback] = js.undefined,
+            onEntering: js.UndefOr[() => Callback] = js.undefined): WithProps = auto
 }
 
 object ModalDialog extends ReactBridgeComponent {
@@ -35,7 +36,7 @@ object ModalHeader extends ReactBridgeComponent {
   override protected lazy val componentValue: js.Any = ReactBootstrapModule.Modal.Header
   def apply(closeButton: js.UndefOr[Boolean] = false,
             closeLabel: js.UndefOr[String] = "Close",
-            onHide: js.UndefOr[js.Function0[Unit]] = js.undefined,
+            onHide: js.UndefOr[() => Callback] = js.undefined,
             bsPrefix: js.UndefOr[String] = js.undefined): WithProps = auto
 }
 

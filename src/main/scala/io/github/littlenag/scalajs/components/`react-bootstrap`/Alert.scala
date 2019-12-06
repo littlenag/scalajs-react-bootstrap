@@ -1,6 +1,7 @@
 package io.github.littlenag.scalajs.components.`react-bootstrap`
 
 import com.payalabs.scalajs.react.bridge.{ReactBridgeComponent, WithProps}
+import japgolly.scalajs.react.Callback
 import org.scalajs.dom.html.Element
 
 import scala.scalajs.js
@@ -13,7 +14,7 @@ object Alert extends ReactBridgeComponent {
 
   def apply(closeLabel: js.UndefOr[String] = js.undefined,
             dismissible: js.UndefOr[Boolean] = js.undefined,
-            onClose: js.UndefOr[js.Function0[Unit]] = js.undefined,
+            onClose: js.UndefOr[() => Callback] = js.undefined,
             show: js.UndefOr[Boolean] = js.undefined,
             transition: js.UndefOr[js.Any] = js.undefined,
             variant: js.UndefOr[String] = js.undefined,
