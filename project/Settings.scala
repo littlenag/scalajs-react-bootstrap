@@ -61,8 +61,8 @@ object Settings {
   /** Declare global dependency versions here to avoid mismatches in multi part dependencies */
   object versions {
     val scalaDom           = "0.9.6"
-    val scalajsReactFacade = "1.4.1"
-    val scalajsReactBridge = "0.7.0"
+    val scalajsReactFacade = "1.4.2"
+    val scalajsReactBridge = "0.8.1"
     val scalaCheck         = "1.14.0"
     val scalaTest          = "3.0.5"
   }
