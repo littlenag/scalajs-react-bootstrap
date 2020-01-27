@@ -12,6 +12,7 @@ import scala.scalajs.js
 object NavDropdown extends ReactBridgeComponent {
   override protected lazy val componentValue: js.Any = ReactBootstrapModule.NavDropdown
   def apply(title: js.UndefOr[String] = js.undefined,
+            alignRight: js.UndefOr[Boolean] = js.undefined,
             bsPrefix: js.UndefOr[String] = js.undefined): WithProps = auto
 }
 
