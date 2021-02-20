@@ -2,8 +2,8 @@
 addSbtPlugin("com.geirsson" % "sbt-scalafmt" % "1.5.1")
 
 // ScalaJS and associated plugins
-addSbtPlugin("org.scala-js" % "sbt-scalajs" % "0.6.29")
-addSbtPlugin("org.portable-scala" % "sbt-scalajs-crossproject" % "0.6.0")
+addSbtPlugin("org.scala-js" % "sbt-scalajs" % "1.5.0")
+addSbtPlugin("org.portable-scala" % "sbt-scalajs-crossproject" % "1.0.0")
 
 // Automate releases
 addSbtPlugin("com.github.gseitz" % "sbt-release" % "1.0.11")
