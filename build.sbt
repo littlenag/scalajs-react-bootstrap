@@ -2,21 +2,23 @@ import ReleaseTransformations._
 
 enablePlugins(ScalaJSPlugin, ScalafmtPlugin)
 
-scalaVersion := "2.12.8"
+scalaVersion := "2.13.5"
 organization := "io.github.littlenag"
 name         := "scalajs-react-bootstrap"
 
-scalacOptions ++= Settings.scalacOptions
-
-// Filter out compiler flags to make the repl experience functional...
-scalacOptions in (Compile, console) ~= (_.filterNot(Seq("-Xfatal-warnings", "-Ywarn-unused:imports").contains(_)))
 resolvers += Resolver.sonatypeRepo("snapshots")
 
-// TODO change to scalatest
-testFrameworks += new TestFramework("utest.runner.Framework")
+val relaxScalacOptions = { options: Seq[String] =>
+  options.filterNot(Set(
+    "-Wunused:nowarn",
+    "-Xfatal-warnings"
+  ))
+}
+
+scalacOptions ~= relaxScalacOptions
 
 scalaJSUseMainModuleInitializer := false
-scalaJSUseMainModuleInitializer in Test := false
+Test / scalaJSUseMainModuleInitializer := false
 
 libraryDependencies ++= Settings.dependencies.value
 
@@ -26,7 +28,7 @@ releasePublishArtifactsAction := PgpKeys.publishSigned.value
 
 PgpKeys.pgpPassphrase := Option(Credentials.toDirect(Credentials(Path.userHome / ".sbt" / "pgp.credentials")).passwd.toCharArray)
 
-useGpg in Global := true
+Global / useGpg := true
 
 pgpSecretRing := pgpPublicRing.value
 
