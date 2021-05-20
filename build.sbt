@@ -1,10 +1,13 @@
 import ReleaseTransformations._
+import xerial.sbt.Sonatype.autoImport.sonatypePublishToBundle
 
 enablePlugins(ScalaJSPlugin, ScalafmtPlugin)
 
 scalaVersion := "2.13.5"
 organization := "io.github.littlenag"
 name         := "scalajs-react-bootstrap"
+
+ThisBuild / versionScheme := Some("early-semver")
 
 resolvers += Resolver.sonatypeRepo("snapshots")
 
@@ -22,13 +25,11 @@ Test / scalaJSUseMainModuleInitializer := false
 
 libraryDependencies ++= Settings.dependencies.value
 
+ThisBuild / publishTo := sonatypePublishToBundle.value
+
 credentials += Credentials(Path.userHome / ".sbt" / "sonatype.credentials")
 
-releasePublishArtifactsAction := PgpKeys.publishSigned.value
-
 PgpKeys.pgpPassphrase := Option(Credentials.toDirect(Credentials(Path.userHome / ".sbt" / "pgp.credentials")).passwd.toCharArray)
-
-Global / useGpg := true
 
 pgpSecretRing := pgpPublicRing.value
 
@@ -44,7 +45,8 @@ releaseProcess := Seq[ReleaseStep](
   //releaseStepCommand(s"sonatypeOpen \"io.github.littlenag\" \"iogithublittlenag-${System.currentTimeMillis()}\""),
   //releaseStepCommand("publishSigned"),
   //releaseStepCommand("sonatypeRelease"),
-  publishArtifacts,
+  releaseStepCommand("sonatypeBundleRelease"),
+  //publishArtifacts,
   setNextVersion,                         // : ReleaseStep
   commitNextVersion,                      // : ReleaseStep
   pushChanges,                            // : ReleaseStep, also checks that an upstream branch is properly configured,
